@@ -85,6 +85,7 @@
     <string name="setting_log_app">Καταγραφή πρόσβασης στο διαδίκτυο</string>
     <string name="setting_access">Ειδοποίηση για πρόσβαση στο διαδίκτυο</string>
     <string name="setting_filter">Φιλτράρισμα κίνησης</string>
+    <string name="setting_filter_udp">Filter UDP traffic</string>
     <string name="setting_clear_onreload">Κλείσιμο συνδέσεων κατά την επαναφόρτωση</string>
     <string name="setting_lockdown">Κλείδωμα της κυκλοφορίας</string>
     <string name="setting_track_usage">Παρακολούθησε τη χρήση δικτύου</string>
@@ -185,14 +186,14 @@
     <string name="msg_downloading">Ταχύτητα κατεβάσματος\n%1s</string>
     <string name="msg_downloaded">Ολοκλήρωση κατεβάσματος αρχείου Hosts</string>
     <string name="msg_download_last">Τελευταία λήψη: %s</string>
-    <string name="msg_start_forward" formatted="false">Ξεκίνησε προώθηση από %1$s θύρα %2$d εως %3$s:%4$d απο %5$s\';</string>
+    <string name="msg_start_forward">Ξεκίνησε προώθηση από %1$s θύρα %2$d εως %3$s:%4$d απο %5$s\';</string>
     <string name="msg_stop_forward">Σταμάτημα προώθησης της %1$s θύρας %2$d;</string>
     <string name="msg_metered">Το δίκτυο μετριέται</string>
     <string name="msg_inactive">Δεν υπάρχει ενεργή σύνδεση στο διαδίκτυο</string>
     <string name="msg_queue">NetGuard είναι απασχολημένο</string>
     <string name="msg_update">Διαθέσιμη ενημέρωση, πατήστε για να κατεβάσετε</string>
     <string name="msg_usage">Μπορείτε να επιτρέψετε (πράσινο) ή να αρνηθείτε (κόκκινο) την ασύρματη η μέσω δεδομένων, πρόσβαση στο διαδίκτυο, πατώντας πάνω στα εικονίδια δίπλα σε μια εφαρμογή</string>
-    <string name="msg_fairemail">If you installed NetGuard to protect your privacy, you might be interested in <a href="https://email.faircode.eu/">FairEmail</a>, an open source, privacy friendly email app, too</string>
+    <string name="msg_fairemail">Εάν εγκαταστήσατε το NetGuard για να προστατεύσετε το απόρρητό σας, μπορεί να σας ενδιαφέρει το <a href="https://email.faircode.eu/"> FairEmail </a>, μια ανοιχτού κώδικα εφαρμογή ηλεκτρονικού ταχυδρομείου, φιλική προς το ιδιωτικό απόρρητο</string>
     <string name="msg_whitelist">Η πρόσβαση στο Διαδίκτυο επιτρέπεται από προεπιλογή ( λειτουργία μαύρης λίστας), αυτό μπορεί να αλλάξει στις ρυθμίσεις</string>
     <string name="msg_push">Τα εισερχόμενα μηνύματα (push) αντιμετωπίζονται ως επί το πλείστον από το σύστημα ως μέρη των υπηρεσιών του Play, στις οποίες επιτρέπεται πρόσβαση στο διαδίκτυο από προεπιλογή</string>
     <string name="msg_system">Η διαχείριση όλων των εφαρμογών (του συστήματος) μπορεί να ενεργοποιηθεί στις ρυθμίσεις</string>

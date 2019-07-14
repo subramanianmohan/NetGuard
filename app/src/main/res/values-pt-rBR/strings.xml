@@ -20,7 +20,7 @@
     <string name="menu_app_disabled">Mostrar apps desabilitados</string>
     <string name="menu_sort">Ordenar aplicativos</string>
     <string name="menu_sort_name">Ordenar por nome</string>
-    <string name="menu_sort_uid">Ordenar por UID</string>
+    <string name="menu_sort_uid">Ordenar por uid</string>
     <string name="menu_sort_data">Ordenar por uso de dados</string>
     <string name="menu_log">Mostrar registro</string>
     <string name="menu_settings">Configurações</string>
@@ -85,6 +85,7 @@
     <string name="setting_log_app">Registrar acesso à internet</string>
     <string name="setting_access">Notificar ao acessar a internet</string>
     <string name="setting_filter">Filtrar tráfego</string>
+    <string name="setting_filter_udp">Filtrar tráfego UDP</string>
     <string name="setting_clear_onreload">Fechar conexões ao recarregar</string>
     <string name="setting_lockdown">Bloqueio total de tráfego</string>
     <string name="setting_track_usage">Controlar o uso de rede</string>
@@ -122,8 +123,8 @@
     <string name="setting_technical_networks">Redes</string>
     <string name="setting_technical_subscription">Inscrições</string>
     <string name="summary_install">Mostrar notificação na barra de status para configurar aplicativos recém-instalados (Versão Pro)</string>
-    <string name="summary_auto">Após desabilitar usando o widget, automaticamente habilitar outra vez após o número de minutos selecionados
-(Insira zero para desabilitar essa opção)</string>
+    <string name="summary_auto">"Após desabilitar usando o widget, automaticamente habilitar outra vez após o número de minutos selecionados
+(Insira zero para desabilitar essa opção)"</string>
     <string name="summary_delay">Após desligar tela, manter as regras ativas pelo número de minutos selecionados (digite 0 para desabilitar essa opção)</string>
     <string name="summary_update">Procurar por novos releases no GitHub duas vezes ao dia</string>
     <string name="summary_tethering">Dependendo da versão do Android, tethering pode não funcionar. Trafego via tethering não pode ser filtrado.</string>
@@ -188,7 +189,7 @@ O seu tráfego de internet não está sendo enviado para um servidor VPN remoto.
     <string name="msg_downloading">Baixando\n%1s</string>
     <string name="msg_downloaded">Arquivos de hosts baixados</string>
     <string name="msg_download_last">Último download: %s</string>
-    <string name="msg_start_forward" formatted="false">Iniciar encaminhamento de %1$s porta %2$d para %3$s:%4$d de \'%5$s\'?</string>
+    <string name="msg_start_forward">Iniciar encaminhamento de %1$s porta %2$d para %3$s:%4$d de \'%5$s\'?</string>
     <string name="msg_stop_forward">Parar encaminhamento de %1$s porta %2$d?</string>
     <string name="msg_metered">A rede é limitada</string>
     <string name="msg_inactive">Não há conexão ativa com a internet</string>

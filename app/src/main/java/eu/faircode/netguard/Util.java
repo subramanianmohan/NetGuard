@@ -47,6 +47,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.preference.PreferenceManager;
+import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
@@ -219,6 +220,14 @@ public class Util {
 
     public static boolean isEU(String country) {
         return (country != null && listEU.contains(country.toUpperCase()));
+    }
+
+    public static boolean isPrivateDns(Context context) {
+        String dns_mode = Settings.Global.getString(context.getContentResolver(), "private_dns_mode");
+        Log.i(TAG, "Private DNS mode=" + dns_mode);
+        if (dns_mode == null)
+            dns_mode = "off";
+        return (!"off".equals(dns_mode));
     }
 
     public static String getNetworkGeneration(int networkType) {
@@ -398,6 +407,9 @@ public class Util {
     }
 
     public static boolean canFilter(Context context) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
+            return true;
+
         // https://android-review.googlesource.com/#/c/206710/1/untrusted_app.te
         File tcp = new File("/proc/net/tcp");
         File tcp6 = new File("/proc/net/tcp6");

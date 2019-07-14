@@ -20,8 +20,8 @@
     <string name="menu_app_disabled">Rodyti išjungtas programėles</string>
     <string name="menu_sort">Rikiuoti programėles</string>
     <string name="menu_sort_name">Rūšiuoti pagal pavadinimą</string>
-    <string name="menu_sort_uid">Sort on uid</string>
-    <string name="menu_sort_data">Sort on data usage</string>
+    <string name="menu_sort_uid">Rikiuoti pagal UID</string>
+    <string name="menu_sort_data">Rikiuoti pagal duomenų naudojimą</string>
     <string name="menu_log">Rodyti žurnalą</string>
     <string name="menu_settings">Nustatymai</string>
     <string name="menu_invite">Pakviesti</string>
@@ -32,7 +32,7 @@
     <string name="menu_protocol_other">Other</string>
     <string name="menu_traffic_allowed">Leidžiama</string>
     <string name="menu_traffic_blocked">Užblokuota</string>
-    <string name="menu_live">Live updates</string>
+    <string name="menu_live">Tiesioginiai atnaujinimai</string>
     <string name="menu_refresh">Įkelti iš naujo</string>
     <string name="menu_resolve">Rodyti pavadinimus</string>
     <string name="menu_organization">Show organization</string>
@@ -85,6 +85,7 @@
     <string name="setting_log_app">Log internet access</string>
     <string name="setting_access">Notify on internet access</string>
     <string name="setting_filter">Filter traffic</string>
+    <string name="setting_filter_udp">Filter UDP traffic</string>
     <string name="setting_clear_onreload">Close connections on reload</string>
     <string name="setting_lockdown">Lockdown traffic</string>
     <string name="setting_track_usage">Track network usage</string>
@@ -160,9 +161,9 @@
     <string name="msg_access">%1$s bandė gauti prieigą prie interneto</string>
     <string name="msg_access_n">Bandyta gauti prieigą prie interneto</string>
     <string name="msg_completed">Veiksmas užbaigtas</string>
-    <string name="msg_vpn">Interneto srauto filtravimui NetGuard naudoja vietinį VPN.
+    <string name="msg_vpn">"Interneto srauto filtravimui NetGuard naudoja vietinį VPN.
 Dėl to, prašome kitame dialoge leisti VPN ryšį.
-Jūsų interneto duomenų srautas nėra siunčiamas į jokį nuotolinį VPN serverį.</string>
+Jūsų interneto duomenų srautas nėra siunčiamas į jokį nuotolinį VPN serverį."</string>
     <string name="msg_autostart">NetGuard nepavyko automatiškai pasileisti. Taip, tikriausiai, yra dėl klaidos jūsų Android versijoje.</string>
     <string name="msg_error">Įvyko netikėta klaida: \'%s\'</string>
     <string name="msg_start_failed">Šiuo metu Android atsisakė paleisti VPN tarnybą. Taip, tikriausiai, yra dėl klaidos jūsų Android versijoje.</string>
@@ -176,10 +177,10 @@ Jūsų interneto duomenų srautas nėra siunčiamas į jokį nuotolinį VPN serv
     <string name="msg_mb">%1$7.3f▲ %2$7.3f▼ MB</string>
     <string name="msg_gb">%1$7.3f▲ %2$7.3f▼ GB</string>
     <string name="msg_count">%dx</string>
-    <string name="msg_doze">For consistent results, the Android battery optimizations should be disabled for NetGuard.
-\n\nIn the next dialog, select \"All apps\" at the top, tap on NetGuard in the list and select and confirm \"Don\'t optimize\".</string>
-    <string name="msg_datasaving">For consistent results, the Android data saving options should be disabled for NetGuard
-\n\nIn the next dialog, enable the options \"Background data\" and \"Unrestricted data usage\"</string>
+    <string name="msg_doze">"For consistent results, the Android battery optimizations should be disabled for NetGuard.
+\n\nIn the next dialog, select \"All apps\" at the top, tap on NetGuard in the list and select and confirm \"Don't optimize\"."</string>
+    <string name="msg_datasaving">"For consistent results, the Android data saving options should be disabled for NetGuard
+\n\nIn the next dialog, enable the options \"Background data\" and \"Unrestricted data usage\""</string>
     <string name="msg_filter">Using filtering will cause Android to attribute data and power usage to NetGuard - Android assumes the data and power are being used by NetGuard, rather than the original apps</string>
     <string name="msg_filter4">Android 4 reikalauja, kad filtravimas būtų įjungtas</string>
     <string name="msg_log_disabled">Traffic logging is disabled, use the switch above to enable logging. Traffic logging might result in extra battery usage.</string>
@@ -189,7 +190,7 @@ Jūsų interneto duomenų srautas nėra siunčiamas į jokį nuotolinį VPN serv
     <string name="msg_downloading">Atsisiunčiama\n%1s</string>
     <string name="msg_downloaded">Hosts file downloaded</string>
     <string name="msg_download_last">Paskutinis atsiuntimas: %s</string>
-    <string name="msg_start_forward" formatted="false">Start forwarding from %1$s port %2$d to %3$s:%4$d of \'%5$s\'?</string>
+    <string name="msg_start_forward">Start forwarding from %1$s port %2$d to %3$s:%4$d of \'%5$s\'?</string>
     <string name="msg_stop_forward">Stop forwarding of %1$s port %2$d?</string>
     <string name="msg_metered">Network is metered</string>
     <string name="msg_inactive">Nėra aktyvaus interneto ryšio</string>
@@ -254,7 +255,7 @@ Jūsų interneto duomenų srautas nėra siunčiamas į jokį nuotolinį VPN serv
     <string name="title_nobody">nobody</string>
     <string name="title_dontask">Daugiau nebeklausti</string>
     <string name="title_log_whois">Whois %1$s</string>
-    <string name="title_log_port">Port %1$d</string>
+    <string name="title_log_port">Prievadas %1$d</string>
     <string name="title_log_copy">Kopijuoti</string>
     <string name="title_pro">Pro ypatybės</string>
     <string name="title_pro_description">Yra prieinamos šios pro ypatybės:</string>
