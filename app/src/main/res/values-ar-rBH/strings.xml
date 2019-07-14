@@ -85,6 +85,7 @@
     <string name="setting_log_app">سجل الوصول للإنترنت</string>
     <string name="setting_access">إخطار عند الوصول إلى الإنترنت</string>
     <string name="setting_filter">تصفية الحركة</string>
+    <string name="setting_filter_udp">Filter UDP traffic</string>
     <string name="setting_clear_onreload">إغلاق الاتصالات عند التحديث</string>
     <string name="setting_lockdown">تأمين مرور المعلومات</string>
     <string name="setting_track_usage">متابعة استخدام الشبكة</string>
@@ -121,7 +122,8 @@
     <string name="setting_technical_general">الاعدادات العامة</string>
     <string name="setting_technical_networks">الشبكات</string>
     <string name="setting_technical_subscription">الإشتراكات</string>
-    <string name="summary_install">إظهار إعلام في شريط المعلومات للتطبيقات المثبتة حديثا (ميزة برو)</string>
+    <string name="summary_install">"إظهار إعلام في شريط المعلومات للتطبيقات المثبتة حديثا (ميزة برو)
+"</string>
     <string name="summary_auto">بعد تعطيل NetGuard باستخدام الويدجت، فعل NetGuard تلقائيا مرة أخرى بعد عدد محدد من الدقائق  (ادخل صفر لتعطيل هذا الخيار)</string>
     <string name="summary_delay">بعد إغلاق الشاشة، إبقاء الشاشة على القواعد نشطة لعدد محدد من الدقائق (ادخل صفر لتعطيل هذا الخيار)</string>
     <string name="summary_update">التحقق من وجود إصدارات جديدة في GitHub مرتين يوميا</string>
@@ -185,7 +187,7 @@
     <string name="msg_downloading">جارٍ تنزيل\n%1s</string>
     <string name="msg_downloaded">تم تنزيل ملف المضيفين</string>
     <string name="msg_download_last">آخر تنزيل: %s</string>
-    <string name="msg_start_forward" formatted="false">بدء التوجيه من %1$s منفذ %2$d الى %3$s:%4$d من %5$s؟</string>
+    <string name="msg_start_forward">Start forwarding from %1$s port %2$d to %3$s:%4$d of \'%5$s\'?</string>
     <string name="msg_stop_forward">إيقاف إعادة توجيه %1$s منفذ %2$d؟</string>
     <string name="msg_metered">الشبكة مقاسة</string>
     <string name="msg_inactive">لا يوجد اتصال إنترنت نشط</string>

@@ -20,7 +20,7 @@
     <string name="menu_app_disabled">Vis avskrudde apper</string>
     <string name="menu_sort">Sorter apper</string>
     <string name="menu_sort_name">Sorter etter navn</string>
-    <string name="menu_sort_uid">Sorter etter UID</string>
+    <string name="menu_sort_uid">Sorter etter uid</string>
     <string name="menu_sort_data">Sorter etter databruk</string>
     <string name="menu_log">Vis loggboken</string>
     <string name="menu_settings">Innstillinger</string>
@@ -85,6 +85,7 @@
     <string name="setting_log_app">Loggfør internettilgang</string>
     <string name="setting_access">Meld ifra om internettilgang</string>
     <string name="setting_filter">Filtrer trafikk</string>
+    <string name="setting_filter_udp">Filter UDP traffic</string>
     <string name="setting_clear_onreload">Lukk tilkoblinger ved ominnlastinger</string>
     <string name="setting_lockdown">Skru av trafikk</string>
     <string name="setting_track_usage">Spor nettverksbruk</string>
@@ -160,9 +161,9 @@
     <string name="msg_access">%1$s attempted internet access</string>
     <string name="msg_access_n">Attempted internet access</string>
     <string name="msg_completed">Handlingen er utført</string>
-    <string name="msg_vpn">NetGuard uses a local VPN to filter internet traffic.
+    <string name="msg_vpn">"NetGuard uses a local VPN to filter internet traffic.
 For this reason, please allow a VPN connection in the next dialog.
-Your internet traffic is not being sent to a remote VPN server.</string>
+Your internet traffic is not being sent to a remote VPN server."</string>
     <string name="msg_autostart">NetGuard could not start automatically. This is likely because of a bug in your Android version.</string>
     <string name="msg_error">An unexpected error has occurred: \'%s\'</string>
     <string name="msg_start_failed">Android refused to start the VPN service at this moment. This is likely because of a bug in your Android version.</string>
@@ -176,10 +177,10 @@ Your internet traffic is not being sent to a remote VPN server.</string>
     <string name="msg_mb">%1$7.3f▲ %2$7.3f▼ MB</string>
     <string name="msg_gb">%1$7.3f▲ %2$7.3f▼ GB</string>
     <string name="msg_count">%dx</string>
-    <string name="msg_doze">For consistent results, the Android battery optimizations should be disabled for NetGuard.
-\n\nIn the next dialog, select \"All apps\" at the top, tap on NetGuard in the list and select and confirm \"Don\'t optimize\".</string>
-    <string name="msg_datasaving">For consistent results, the Android data saving options should be disabled for NetGuard
-\n\nIn the next dialog, enable the options \"Background data\" and \"Unrestricted data usage\"</string>
+    <string name="msg_doze">"For consistent results, the Android battery optimizations should be disabled for NetGuard.
+\n\nIn the next dialog, select \"All apps\" at the top, tap on NetGuard in the list and select and confirm \"Don't optimize\"."</string>
+    <string name="msg_datasaving">"For consistent results, the Android data saving options should be disabled for NetGuard
+\n\nIn the next dialog, enable the options \"Background data\" and \"Unrestricted data usage\""</string>
     <string name="msg_filter">Using filtering will cause Android to attribute data and power usage to NetGuard - Android assumes the data and power are being used by NetGuard, rather than the original apps</string>
     <string name="msg_filter4">Android 4 krever filtrering for å bli aktivert</string>
     <string name="msg_log_disabled">Trafikkloggføring er deaktivert, bruk bryteren ovenfor for å aktivere loggføring. Trafikkloggføring kan føre til ekstra batteriforbruk.</string>
@@ -189,7 +190,7 @@ Your internet traffic is not being sent to a remote VPN server.</string>
     <string name="msg_downloading">Laster ned\n%1s</string>
     <string name="msg_downloaded">«hosts»-filen har blitt lastet ned</string>
     <string name="msg_download_last">Seneste nedlastning: %s</string>
-    <string name="msg_start_forward" formatted="false">Start forwarding from %1$s port %2$d to %3$s:%4$d of \'%5$s\'?</string>
+    <string name="msg_start_forward">Start forwarding from %1$s port %2$d to %3$s:%4$d of \'%5$s\'?</string>
     <string name="msg_stop_forward">Vil du avslutte viderekoblingen av %1$s-porten %2$d?</string>
     <string name="msg_metered">Nettverket er forbrukspriset</string>
     <string name="msg_inactive">Ingen aktiv internettforbindelse</string>

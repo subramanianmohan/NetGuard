@@ -457,8 +457,8 @@ public class ServiceSinkhole extends VpnService implements SharedPreferences.OnS
 
                 if (cmd == Command.start || cmd == Command.reload) {
                     if (VpnService.prepare(ServiceSinkhole.this) == null) {
-                        Log.w(TAG, "VPN not prepared connected=" + last_connected);
-                        if (last_connected) {
+                        Log.w(TAG, "VPN prepared connected=" + last_connected);
+                        if (last_connected && !(ex instanceof StartFailedException)) {
                             showAutoStartNotification();
                             if (!Util.isPlayStoreInstall(ServiceSinkhole.this))
                                 showErrorNotification(ex.toString());
@@ -563,28 +563,12 @@ public class ServiceSinkhole extends VpnService implements SharedPreferences.OnS
                     last_builder = builder;
                     Log.i(TAG, "VPN restart");
 
-                    // Attempt seamless handover
-                    ParcelFileDescriptor prev = vpn;
+                    if (vpn != null) {
+                        stopNative(vpn, clear);
+                        stopVPN(vpn);
+                    }
+
                     vpn = startVPN(builder);
-
-                    if (prev != null && vpn == null) {
-                        Log.w(TAG, "Handover failed");
-                        stopNative(prev, clear);
-                        stopVPN(prev);
-                        prev = null;
-                        try {
-                            Thread.sleep(3000);
-                        } catch (InterruptedException ignored) {
-                        }
-                        vpn = startVPN(last_builder);
-                        if (vpn == null)
-                            throw new IllegalStateException("Handover failed");
-                    }
-
-                    if (prev != null) {
-                        stopNative(prev, clear);
-                        stopVPN(prev);
-                    }
                 }
             }
 
@@ -1015,8 +999,10 @@ public class ServiceSinkhole extends VpnService implements SharedPreferences.OnS
         // Get custom DNS servers
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean ip6 = prefs.getBoolean("ip6", true);
-        String vpnDns1 = prefs.getString("dns", null);
-        String vpnDns2 = prefs.getString("dns2", null);
+        boolean pdns = Util.isPrivateDns(context);
+        // Make sure normal DNS servers are used when private DNS is enabled
+        String vpnDns1 = prefs.getString("dns", pdns ? "8.8.8.8" : null);
+        String vpnDns2 = prefs.getString("dns2", pdns ? "8.8.4.4" : null);
         Log.i(TAG, "DNS system=" + TextUtils.join(",", sysDns) + " VPN1=" + vpnDns1 + " VPN2=" + vpnDns2);
 
         if (vpnDns1 != null)
@@ -1039,7 +1025,7 @@ public class ServiceSinkhole extends VpnService implements SharedPreferences.OnS
             }
 
         // Use system DNS servers only when no two custom DNS servers specified
-        if (listDns.size() <= 1)
+        if (listDns.size() < 2)
             for (String def_dns : sysDns)
                 try {
                     InetAddress ddns = InetAddress.getByName(def_dns);
@@ -1774,9 +1760,28 @@ public class ServiceSinkhole extends VpnService implements SharedPreferences.OnS
         return blocked;
     }
 
+    // Called from native code
+    @TargetApi(Build.VERSION_CODES.Q)
+    private int getUidQ(int version, int protocol, String saddr, int sport, String daddr, int dport) {
+        if (protocol != 6 /* TCP */ && protocol != 17 /* UDP */)
+            return Process.INVALID_UID;
+
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+        if (cm == null)
+            return Process.INVALID_UID;
+
+        InetSocketAddress local = new InetSocketAddress(saddr, sport);
+        InetSocketAddress remote = new InetSocketAddress(daddr, dport);
+
+        Log.i(TAG, "Get uid local=" + local + " remote=" + remote);
+        int uid = cm.getConnectionOwnerUid(protocol, local, remote);
+        Log.i(TAG, "Get uid=" + uid);
+        return uid;
+    }
+
     private boolean isSupported(int protocol) {
         return (protocol == 1 /* ICMPv4 */ ||
-                protocol == 59 /* ICMPv6 */ ||
+                protocol == 58 /* ICMPv6 */ ||
                 protocol == 6 /* TCP */ ||
                 protocol == 17 /* UDP */);
     }
@@ -1790,7 +1795,11 @@ public class ServiceSinkhole extends VpnService implements SharedPreferences.OnS
         packet.allowed = false;
         if (prefs.getBoolean("filter", false)) {
             // https://android.googlesource.com/platform/system/core/+/master/include/private/android_filesystem_config.h
-            if (packet.uid < 2000 &&
+            if (packet.protocol == 17 /* UDP */ && !prefs.getBoolean("filter_udp", false)) {
+                // Allow unfiltered UDP
+                packet.allowed = true;
+                Log.i(TAG, "Allowing UDP " + packet);
+            } else if (packet.uid < 2000 &&
                     !last_connected && isSupported(packet.protocol)) {
                 // Allow system applications in disconnected state
                 packet.allowed = true;
@@ -2351,26 +2360,34 @@ public class ServiceSinkhole extends VpnService implements SharedPreferences.OnS
         ConnectivityManager.NetworkCallback nc = new ConnectivityManager.NetworkCallback() {
             private Boolean last_unmetered = null;
             private String last_generation = null;
+            private List<InetAddress> last_dns = null;
 
             @Override
             public void onAvailable(Network network) {
+                Log.i(TAG, "Available network=" + network);
                 reload("network available", ServiceSinkhole.this, false);
             }
 
             @Override
             public void onLinkPropertiesChanged(Network network, LinkProperties linkProperties) {
                 // Make sure the right DNS servers are being used
+                List<InetAddress> dns = linkProperties.getDnsServers();
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSinkhole.this);
                 if (prefs.getBoolean("reload_onconnectivity", false) ||
-                        Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+                        (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) && !same(last_dns, dns)) {
+                    last_dns = dns;
+                    Log.i(TAG, "Changed link properties=" + linkProperties);
                     reload("link properties changed", ServiceSinkhole.this, false);
+                }
             }
 
             @Override
             public void onCapabilitiesChanged(Network network, NetworkCapabilities networkCapabilities) {
+                Log.i(TAG, "Changed capabilities=" + network);
+
                 boolean unmetered = networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED);
                 String generation = Util.getNetworkGeneration(ServiceSinkhole.this);
-                Log.i(TAG, "Capabilities changed generation=" + generation + " unmetered=" + unmetered);
+                Log.i(TAG, "Generation=" + generation + " unmetered=" + unmetered);
 
                 if (last_generation == null || !last_generation.equals(generation)) {
                     if (last_generation != null) {
@@ -2396,7 +2413,21 @@ public class ServiceSinkhole extends VpnService implements SharedPreferences.OnS
 
             @Override
             public void onLost(Network network) {
+                Log.i(TAG, "Lost network=" + network);
                 reload("network lost", ServiceSinkhole.this, false);
+            }
+
+            boolean same(List<InetAddress> last, List<InetAddress> current) {
+                if (last == null || current == null)
+                    return false;
+                if (last == null || last.size() != current.size())
+                    return false;
+
+                for (int i = 0; i < current.size(); i++)
+                    if (!last.get(i).equals(current.get(i)))
+                        return false;
+
+                return true;
             }
         };
         cm.registerNetworkCallback(builder.build(), nc);
@@ -2926,6 +2957,13 @@ public class ServiceSinkhole extends VpnService implements SharedPreferences.OnS
         @Override
         public Builder addRoute(String address, int prefixLength) {
             listRoute.add(address + "/" + prefixLength);
+            super.addRoute(address, prefixLength);
+            return this;
+        }
+
+        @Override
+        public Builder addRoute(InetAddress address, int prefixLength) {
+            listRoute.add(address.getHostAddress() + "/" + prefixLength);
             super.addRoute(address, prefixLength);
             return this;
         }

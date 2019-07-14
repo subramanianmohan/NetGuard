@@ -20,7 +20,7 @@
     <string name="menu_app_disabled">Mostrar aplicaciones desactivadas</string>
     <string name="menu_sort">Ordenar aplicaciones</string>
     <string name="menu_sort_name">Ordenar por nombre</string>
-    <string name="menu_sort_uid">Ordenar por UID</string>
+    <string name="menu_sort_uid">Ordenar por uid</string>
     <string name="menu_sort_data">Ordenar por uso de datos</string>
     <string name="menu_log">Mostrar registro</string>
     <string name="menu_settings">Ajustes</string>
@@ -50,7 +50,7 @@
     <string name="title_rport">Puerto de destino</string>
     <string name="title_ruid">Aplicación de destino</string>
     <string name="title_external">Para un servidor externo, seleccione \'nadie\'</string>
-    <string name="setting_defaults">Valores predeterminados</string>
+    <string name="setting_defaults">Valores predeterminados (lista blanca/negra)</string>
     <string name="setting_whitelist_wifi">Bloquear Wi-Fi por defecto</string>
     <string name="setting_whitelist_other">Bloquear red móvil por defecto</string>
     <string name="setting_screen_wifi">Permitir Wi-Fi con la pantalla encendida</string>
@@ -85,6 +85,7 @@
     <string name="setting_log_app">Registrar acceso a Internet</string>
     <string name="setting_access">Notificar accesos a Internet</string>
     <string name="setting_filter">Filtrar tráfico</string>
+    <string name="setting_filter_udp">Filtrar tráfico UDP</string>
     <string name="setting_clear_onreload">Cerrar conexiones al recargar</string>
     <string name="setting_lockdown">Bloquear tráfico</string>
     <string name="setting_track_usage">Registrar uso de red</string>
@@ -185,15 +186,15 @@
     <string name="msg_downloading">Descargando\n%1s</string>
     <string name="msg_downloaded">Archivo hosts descargado</string>
     <string name="msg_download_last">Última descarga: %s</string>
-    <string name="msg_start_forward" formatted="false">¿Iniciar redirección desde el puerto %1$s, %2$d hacia %3$s:%4$d de \'%5$s\'?</string>
+    <string name="msg_start_forward">¿Iniciar redirección desde el puerto %1$s, %2$d hacia %3$s:%4$d de \'%5$s\'?</string>
     <string name="msg_stop_forward">¿Detener redirección de %1$s puerto %2$d?</string>
     <string name="msg_metered">La red está medida</string>
     <string name="msg_inactive">No hay conexión a Internet</string>
     <string name="msg_queue">NetGuard está ocupado</string>
     <string name="msg_update">Actualización disponible, pulse para descargar</string>
     <string name="msg_usage">Puede permitir (verde) o denegar (rojo) el acceso a Internet Wi-Fi o móvil pulsando en los iconos al lado de cada aplicación</string>
-    <string name="msg_fairemail">Si ha instalado NetGuard para proteger su privacidad, podría estar interesado en <a href="https://email.faircode.eu/">FairEmail</a>, una aplicación de correo electrónico de código y que respeta la privacidad</string>
-    <string name="msg_whitelist">El acceso a Internet está permitido de forma predeterminada, esto puede cambiarse en los ajustes</string>
+    <string name="msg_fairemail">Si ha instalado NetGuard para proteger su privacidad, podría estar interesado en <a href="https://email.faircode.eu/">FairEmail</a>, una aplicación de correo electrónico de código abierto que respeta también la privacidad</string>
+    <string name="msg_whitelist">El acceso a Internet está permitido de forma predeterminada (modo de lista negra), esto puede cambiarse en los ajustes</string>
     <string name="msg_push">Las notificaciones (push) son gestionadas principalmente por el componente del sistema \"Play Services\", que está autorizado para acceder a Internet de forma predeterminada</string>
     <string name="msg_system">La gestión de las aplicaciones del sistema puede activarse en los ajustes</string>
     <string name="msg_issue">Por favor, describa el problema e indique el tiempo del mismo:</string>
@@ -214,7 +215,7 @@
     <string name="title_host_blocked">Dirección bloqueada</string>
     <string name="title_interactive_allowed">Permitir con la pantalla encendida</string>
     <string name="title_roaming_blocked">Bloquear en roaming</string>
-    <string name="title_metered">De forma predeterminada, una conexión Wi-Fi se considera ilimitada y una conexión móvil medida</string>
+    <string name="title_metered">Por defecto, una conexión Wi-Fi se considera ilimitada y una conexión móvil medida</string>
     <string name="title_internet">sin permiso de acceso a Internet</string>
     <string name="title_disabled">está desactivado</string>
     <string name="title_apply">Aplicar reglas y condiciones</string>

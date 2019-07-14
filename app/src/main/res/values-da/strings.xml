@@ -85,6 +85,7 @@
     <string name="setting_log_app">Log Internetadgang</string>
     <string name="setting_access">Notificér ved Internetadgang</string>
     <string name="setting_filter">Filtrér trafik</string>
+    <string name="setting_filter_udp">Filtrér UDP-trafik</string>
     <string name="setting_clear_onreload">Luk forbindelse ved genindlæsning</string>
     <string name="setting_lockdown">Aflås trafik</string>
     <string name="setting_track_usage">Spor netværksforbrug</string>
@@ -189,7 +190,7 @@ Aktivér venligst indstillingerne \"Baggrundsdata\" og \"Ubegrænset dataforbrug
     <string name="msg_downloading">Downloader\n%1s</string>
     <string name="msg_downloaded">Værtsfil downloadet</string>
     <string name="msg_download_last">Seneste download: %s</string>
-    <string name="msg_start_forward" formatted="false">Start viderestilling af \'%5$s\' fra %1$s port %2$d til %3$s:%4$d?</string>
+    <string name="msg_start_forward">Start viderestilling af \'%5$s\' fra %1$s port %2$d til %3$s:%4$d?</string>
     <string name="msg_stop_forward">Stop viderestilling af %1$s port %2$d?</string>
     <string name="msg_metered">Netværk er forbrugsafregnet</string>
     <string name="msg_inactive">Ingen aktiv Internetforbindelse</string>

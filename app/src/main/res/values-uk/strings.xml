@@ -85,6 +85,7 @@
     <string name="setting_log_app">Записувати доступ до мережі інтернет</string>
     <string name="setting_access">Сповіщувати про доступ до інтернету</string>
     <string name="setting_filter">Фільтрувати трафік</string>
+    <string name="setting_filter_udp">Фільтрувати трафік UDP</string>
     <string name="setting_clear_onreload">Розривати з’єднання при перезавантаженні</string>
     <string name="setting_lockdown">Блокування трафіка</string>
     <string name="setting_track_usage">Відслідковувати використання мережі</string>
@@ -186,7 +187,7 @@
     <string name="msg_downloading">Завантаження\n%1s</string>
     <string name="msg_downloaded">Host-файл завантажено</string>
     <string name="msg_download_last">Останнє завантаження: %s</string>
-    <string name="msg_start_forward" formatted="false">Почати перенаправлення з %1$s порту %2$d до %3$s:%4$d з «%5$s»?</string>
+    <string name="msg_start_forward">Почати перенаправлення з %1$s порту %2$d до %3$s:%4$d з «%5$s»?</string>
     <string name="msg_stop_forward">Зупинити перенаправлення з %1$s порту %2$d?</string>
     <string name="msg_metered">Лімітована мережа</string>
     <string name="msg_inactive">Немає активного з\'єднання з Інтернетом</string>

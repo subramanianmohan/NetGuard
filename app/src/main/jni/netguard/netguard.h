@@ -380,7 +380,7 @@ void parse_dns_response(const struct arguments *args, const struct ng_session *s
 
 uint32_t get_send_window(const struct tcp_session *cur);
 
-int get_receive_buffer(const struct ng_session *cur);
+uint32_t get_receive_buffer(const struct ng_session *cur);
 
 uint32_t get_receive_window(const struct ng_session *cur);
 
@@ -505,6 +505,14 @@ void dns_resolved(const struct arguments *args,
                   const char *qname, const char *aname, const char *resource, int ttl);
 
 jboolean is_domain_blocked(const struct arguments *args, const char *name);
+
+jint get_uid_q(const struct arguments *args,
+               jint version,
+               jint protocol,
+               const char *source,
+               jint sport,
+               const char *dest,
+               jint dport);
 
 struct allowed *is_address_allowed(const struct arguments *args, jobject objPacket);
 
